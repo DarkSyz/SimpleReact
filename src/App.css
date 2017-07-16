@@ -1,0 +1,38 @@
+.App {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: center;  
+  margin-top: 48px;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.Content {
+  min-width: 250px;
+  margin: 48px 48px 48px 48px;
+}
+
+.product-header {
+  font-weight: bold;
+  margin-top: 16px;  
+}
+
+.product-category {
+  margin-top: 8px;  
+  font-weight: bold;
+  background: #F0F0F0;
+}
+
+.product {
+  margin-top: 8px;  
+  font-style: italic;
+}
