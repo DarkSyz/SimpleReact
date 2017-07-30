@@ -3,7 +3,7 @@
   flex: 1 1 auto;
   flex-direction: column;
   align-items: center;  
-  margin-top: 48px;
+  margin: 24px;
 }
 
 .App-logo {
@@ -17,10 +17,23 @@
 }
 
 .Content {
-  min-width: 250px;
-  margin: 48px 48px 48px 48px;
+  min-width: 300px;
+  margin: 24px;
 }
 
+.Header {
+  display: flex;
+  justify-content: left;
+  margin: 16px;
+}
+
+.Body {
+  margin: 16px; 
+}
+
+.field-header {
+  margin-top: 16px;
+}
 .product-header {
   font-weight: bold;
   margin-top: 16px;  
