@@ -15,7 +15,7 @@ class App extends Component {
 
         <Router>
         <div className="Content">
-          <Menu className="Header" mode="horizontal">
+          <Menu className="Header" mode="horizontal" theme="dark">
             <Menu.Item><Link to='/search'>Search</Link></Menu.Item>
             <Menu.Item><Link to='/add'>Add</Link></Menu.Item>
           </Menu>
