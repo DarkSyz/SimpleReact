@@ -89,7 +89,7 @@ class ProductTable extends Component {
       lastCategory = item.category;
 
       rows.push(
-        <Product key={item.name + index} {...item} />
+        <Product key={item.category + item.name + index} {...item} />
       );
     });
 
