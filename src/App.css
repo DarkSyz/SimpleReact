@@ -17,13 +17,13 @@
 }
 
 .Content {
-  min-width: 300px;
+  width: 300px;
   margin: 24px;
 }
 
 .Header {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
   margin: 16px;
 }
 

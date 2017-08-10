@@ -5,23 +5,40 @@ import './App.css';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import SearchComponent from './search';
 import AddComponent from './add';
-import { Menu } from 'antd';
+import { Menu, Tabs, Calendar } from 'antd';
+
+class Home extends Component {
+  render() {
+    const TabPane = Tabs.TabPane;
+    return (     
+      <Tabs defaultActiveKey="1">
+        <TabPane tab="Search" key="1"><SearchComponent/></TabPane>
+        <TabPane tab="Add" key="2"><AddComponent/></TabPane>
+      </Tabs>
+    );
+  }
+}
+
+const Contact = (props)=><div style={{width: '100%', border: '1px solid #d9d9d9', borderRadius: 4}} ><Calendar fullscreen={false}/></div>
+const About = (props)=><div>About</div>
 
 class MainMenu extends Component {
   constructor(props){
     super(props);
     this.state = {
-      selectedKeys: ['search']
+      selectedKeys: ['home']
     }
   }
 
   render() {
+    const TabPane = Tabs.TabPane;
     return (
       <Menu className="Header" mode="horizontal" theme="dark"
         defaultSelectedKeys={this.state.selectedKeys}>
-        <Menu.Item key='search'><Link to='/search'>Search</Link></Menu.Item>
-        <Menu.Item key='add'><Link to='/add'>Add</Link></Menu.Item>
-      </Menu>
+        <Menu.Item key='home'><Link to='/home'>Home</Link></Menu.Item>
+        <Menu.Item key='contact'><Link to='/contact'>Contact Us</Link></Menu.Item>
+        <Menu.Item key='about'><Link to='/about'>About</Link></Menu.Item>        
+      </Menu>      
     );
   }
 }
@@ -35,11 +52,11 @@ class App extends Component {
         <Router>
           <div className="Content">
             <MainMenu />
-
             <div className="Body">
-              <Redirect exact from='/' to='/search' />
-              <Route path='/search' component={SearchComponent} />
-              <Route path='/add' component={AddComponent} />
+              <Redirect exact from='/' to='/home' />
+              <Route path='/home' component={Home} />
+              <Route path='/contact' component={Contact} />
+              <Route path='/about' component={About} />
             </div>
           </div>
         </Router>
