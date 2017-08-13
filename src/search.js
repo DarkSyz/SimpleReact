@@ -14,7 +14,9 @@ export default class FilterableProductTable extends Component {
     this.onStateChanged = this.onStateChanged.bind(this);
   }
   onStateChanged(){
-    this.setState();
+    this.setState({
+      goods: store.sortGoods()
+    });
   }
   componentWillMount(){
     store.addChangeListener(this.onStateChanged);

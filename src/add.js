@@ -5,15 +5,7 @@ import './App.css';
 
 import store from './store';
 
-class FieldSection extends Component {
-    render() {
-        return (
-            <div style={{ marginBottom: '16px', display: 'flex', flexDirection: 'column' }}>
-                {this.props.children}
-            </div>
-        );
-    }
-}
+
 
 class AddForm extends Component {
     constructor(props) {
@@ -50,7 +42,8 @@ class AddForm extends Component {
             stocked: e.target.checked
         });
     }
-    onAdd() {
+    onAdd = (e) => {
+        e.preventDefault();
         store.addGood(this.state);
         this.setState({
             category: '',
@@ -60,11 +53,11 @@ class AddForm extends Component {
         });
     }    
     render() {
+        const FormItem = Form.Item;
         return (
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <FieldSection>
-                    <label>Category</label>
-                    <AutoComplete dataSource={this.props.categories} placeholder="Category"/>
+            <Form onSubmit={this.onAdd}>
+                <FormItem label='Category'>
+                    <AutoComplete dataSource={this.props.categories} placeholder="Category" value={this.state.category} onChange={this.onCategoryChanged}/>
                     {/*<Select mode='combobox' value={this.state.category} onChange={this.onCategoryChanged}>
                         {
                             this.props.categories.map(e =>
@@ -72,24 +65,22 @@ class AddForm extends Component {
                             )
                         }
                     </Select>*/}
-                </FieldSection>
-                <FieldSection>
-                    <label>Name</label>
+                </FormItem>
+                <FormItem label='Name'>
                     <Input value={this.state.name} onChange={this.onNameChanged} />
-                </FieldSection>
-                <FieldSection>
-                    <label>Price</label>
+                </FormItem>
+                <FormItem label='Price'>
                     <Input value={this.state.price} onChange={this.onPriceChanged} />
-                </FieldSection>
-                <FieldSection>
+                </FormItem>
+                <FormItem>
                     <Checkbox checked={this.state.stocked} onChange={this.onStockedChanged}>
                         <label>Stocked</label>
                     </Checkbox>
-                </FieldSection>
-                <FieldSection>
-                    <Button type="primary" onClick={this.onAdd}>Add</Button>
-                </FieldSection>
-            </div>
+                </FormItem>
+                <FormItem>
+                    <Button type='primary' htmlType='submit'>Add</Button>
+                </FormItem>            
+            </Form>
         )
     }
 }
@@ -105,10 +96,9 @@ export default class Add extends Component {
     }
 
     render() {
+        const F = Form.create()(AddForm);
         return (
-            <Form.Item>
-                <AddForm categories={this.categories} />
-            </Form.Item>
+            <F categories={this.categories} />
         )
     }
 

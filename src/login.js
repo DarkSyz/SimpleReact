@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Form, Input, Button, Icon, Alert} from 'antd';
 
-const FormItem = Form.Item;
-
 class LoginForm extends Component {
     handleSubmit = (e)=>{
         e.preventDefault();
@@ -13,6 +11,7 @@ class LoginForm extends Component {
         });
     }
     render(){
+        const FormItem = Form.Item;
         const { getFieldDecorator } = this.props.form;
         return (
         <Form onSubmit={this.handleSubmit}>
