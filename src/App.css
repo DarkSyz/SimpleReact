@@ -17,7 +17,7 @@
 }
 
 .Content {
-  width: 300px;
+  width: 400px;
   margin: 24px;
 }
 
@@ -48,4 +48,17 @@
 .product {
   margin-top: 8px;  
   font-style: italic;
+}
+
+
+.slick-slider {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.slick-slider h3{
+  color: #fff;
 }

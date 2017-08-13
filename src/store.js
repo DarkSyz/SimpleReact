@@ -2,12 +2,12 @@ import { EventEmitter } from 'events';
 
 const store = Object.assign({}, EventEmitter.prototype, {
   goods: [
-    { category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football" },
-    { category: "Sporting Goods", price: "$9.99", stocked: true, name: "Basketball" },
-    { category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball" },
-    { category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch" },
-    { category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5" },
-    { category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7" },
+    { key:"1", category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football" },
+    { key:"2", category: "Sporting Goods", price: "$9.99", stocked: true, name: "Basketball" },
+    { key:"3", category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball" },
+    { key:"4", category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch" },
+    { key:"5", category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5" },
+    { key:"6", category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7" },
   ],
   sortGoods(){
     this.goods.sort(function(a, b){

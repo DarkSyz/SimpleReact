@@ -5,13 +5,15 @@ import './App.css';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import SearchComponent from './search';
 import AddComponent from './add';
+import AboutComponent from './about';
+import LoginComponent from './login';
 import { Menu, Tabs, Calendar } from 'antd';
 
 class Home extends Component {
   render() {
     const TabPane = Tabs.TabPane;
     return (     
-      <Tabs defaultActiveKey="1">
+      <Tabs defaultActiveKey="1" type='card'>
         <TabPane tab="Search" key="1"><SearchComponent/></TabPane>
         <TabPane tab="Add" key="2"><AddComponent/></TabPane>
       </Tabs>
@@ -20,7 +22,6 @@ class Home extends Component {
 }
 
 const Contact = (props)=><div style={{width: '100%', border: '1px solid #d9d9d9', borderRadius: 4}} ><Calendar fullscreen={false}/></div>
-const About = (props)=><div>About</div>
 
 class MainMenu extends Component {
   constructor(props){
@@ -31,14 +32,14 @@ class MainMenu extends Component {
   }
 
   render() {
-    const TabPane = Tabs.TabPane;
     return (
       <Menu className="Header" mode="horizontal" theme="dark"
         defaultSelectedKeys={this.state.selectedKeys}>
         <Menu.Item key='home'><Link to='/home'>Home</Link></Menu.Item>
         <Menu.Item key='contact'><Link to='/contact'>Contact Us</Link></Menu.Item>
         <Menu.Item key='about'><Link to='/about'>About</Link></Menu.Item>        
-      </Menu>      
+        <Menu.Item key='login'><Link to='/login'>Login</Link></Menu.Item>        
+        </Menu>      
     );
   }
 }
@@ -56,7 +57,8 @@ class App extends Component {
               <Redirect exact from='/' to='/home' />
               <Route path='/home' component={Home} />
               <Route path='/contact' component={Contact} />
-              <Route path='/about' component={About} />
+              <Route path='/about' component={AboutComponent} />
+              <Route path='/login' component={LoginComponent} />
             </div>
           </div>
         </Router>

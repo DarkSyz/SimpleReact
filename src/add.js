@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Checkbox, Button, Select } from 'antd';
+import { Input, Checkbox, Button, Select, AutoComplete, Form } from 'antd';
 import 'antd/dist/antd.css';
 import './App.css';
 
@@ -64,13 +64,14 @@ class AddForm extends Component {
             <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <FieldSection>
                     <label>Category</label>
-                    <Select mode='combobox' value={this.state.category} onChange={this.onCategoryChanged}>
+                    <AutoComplete dataSource={this.props.categories} placeholder="Category"/>
+                    {/*<Select mode='combobox' value={this.state.category} onChange={this.onCategoryChanged}>
                         {
                             this.props.categories.map(e =>
                                 <Select.Option key={e} value={e}>{e}</Select.Option>
                             )
                         }
-                    </Select>
+                    </Select>*/}
                 </FieldSection>
                 <FieldSection>
                     <label>Name</label>
@@ -105,9 +106,9 @@ export default class Add extends Component {
 
     render() {
         return (
-            <div>
+            <Form.Item>
                 <AddForm categories={this.categories} />
-            </div>
+            </Form.Item>
         )
     }
 
