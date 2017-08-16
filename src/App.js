@@ -7,7 +7,8 @@ import SearchComponent from './search';
 import AddComponent from './add';
 import AboutComponent from './about';
 import LoginComponent from './login';
-import { Menu, Tabs, Calendar } from 'antd';
+import ContactComponent from './contact';
+import { Menu, Tabs } from 'antd';
 
 class Home extends Component {
   render() {
@@ -20,8 +21,6 @@ class Home extends Component {
     );
   }
 }
-
-const Contact = (props)=><div style={{width: '100%', border: '1px solid #d9d9d9', borderRadius: 4}} ><Calendar fullscreen={false}/></div>
 
 class MainMenu extends Component {
   constructor(props){
@@ -56,7 +55,7 @@ class App extends Component {
             <div className="Body">
               <Redirect exact from='/' to='/home' />
               <Route path='/home' component={Home} />
-              <Route path='/contact' component={Contact} />
+              <Route path='/contact' component={ContactComponent} />
               <Route path='/about' component={AboutComponent} />
               <Route path='/login' component={LoginComponent} />
             </div>
